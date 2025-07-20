@@ -15,37 +15,41 @@
         </header>
 
         <main>
-            <section class="endpoints">
-                <h2>API Endpoints</h2>
-                <div class="endpoint">
-                    <h3>Get Current Time</h3>
-                    <p><code>GET /api/</code></p>
-                    <p>Returns the current timestamp in both Unix and UTC formats.</p>
-                </div>
-                <div class="endpoint">
-                    <h3>Get Specific Time</h3>
-                    <p><code>GET /api/:date?</code></p>
-                    <p>Returns the timestamp for a given date string or Unix timestamp.</p>
-                    <h4>Example Usage:</h4>
-                    <ul>
-                        <li><a href="api/2024-07-20" target="_blank" rel="noopener noreferrer">/api/2024-07-20</a></li>
-                        <li><a href="api/1721433600000" target="_blank" rel="noopener noreferrer">/api/1721433600000</a></li>
-                    </ul>
-                </div>
-            </section>
+            <div class="window">
+                <section class="endpoints">
+                    <h2>API Endpoints</h2>
+                    <div class="endpoint">
+                        <h3>Get Current Time</h3>
+                        <p><code>GET /api/</code></p>
+                        <p>Returns the current timestamp in both Unix and UTC formats.</p>
+                    </div>
+                    <div class="endpoint">
+                        <h3>Get Specific Time</h3>
+                        <p><code>GET /api/:date?</code></p>
+                        <p>Returns the timestamp for a given date string or Unix timestamp.</p>
+                        <h4>Example Usage:</h4>
+                        <ul>
+                            <li><a href="api/2024-07-20" target="_blank" rel="noopener noreferrer">/api/2024-07-20</a></li>
+                            <li><a href="api/1721433600000" target="_blank" rel="noopener noreferrer">/api/1721433600000</a></li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
 
-            <section class="output">
-                <h2>Example Output</h2>
-                <p>For a valid date, the API returns:</p>
-                <pre><code>{
+            <div class="window">
+                <section class="output">
+                    <h2>Example Output</h2>
+                    <p>For a valid date, the API returns:</p>
+                    <pre><code>{
   "unix": 1721433600000,
   "utc": "Sat, 20 Jul 2024 00:00:00 GMT"
 }</code></pre>
-                <p>For an invalid date, the API returns:</p>
-                <pre><code>{
+                    <p>For an invalid date, the API returns:</p>
+                    <pre><code>{
   "error": "Invalid Date"
 }</code></pre>
-            </section>
+                </section>
+            </div>
         </main>
 
         <footer>
