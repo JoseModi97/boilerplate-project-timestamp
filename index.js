@@ -28,31 +28,24 @@ app.get("/api/ping", function (req, res) {
   res.json({message: 'pong'});
 });
 
-app.get("/api/:date?", function(req, res) {
+app.get('/api/:date_string?', (req, res) => {
+  let dateString = req.params.date_string;
   let date;
 
-  if (!req.params.date) {
+  if (!dateString) {
     date = new Date();
   } else {
-    // Try parsing the date string
-    date = new Date(req.params.date);
-
-    // If date is invalid, try parsing as a Unix timestamp
-    if (isNaN(date.getTime())) {
-      const unixTimestamp = parseInt(req.params.date);
-      if (!isNaN(unixTimestamp)) {
-        date = new Date(unixTimestamp);
-      }
+    if (!isNaN(dateString)) {
+      date = new Date(parseInt(dateString));
+    } else {
+      date = new Date(dateString);
     }
   }
 
-  if (isNaN(date.getTime())) {
-    res.json({ error: "Invalid Date" });
+  if (date.toString() === 'Invalid Date') {
+    res.json({ error: 'Invalid Date' });
   } else {
-    res.json({
-      unix: date.getTime(),
-      utc: date.toUTCString()
-    });
+    res.json({ unix: date.getTime(), utc: date.toUTCString() });
   }
 });
 
