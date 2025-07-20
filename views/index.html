@@ -1,36 +1,56 @@
 <!DOCTYPE html>
-
-<html>
-   <head>
-      <title>Timestamp Microservice | freeCodeCamp.org</title>
-      <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon"/>
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-      <link href="style.css" rel="stylesheet" type="text/css">
-      <script type="module" src="https://cdn.jsdelivr.net/npm/@fluentui/web-components/dist/web-components.min.js"></script>
-   </head>
-
-   <body>
-    <h1>Timestamp Microservice</h1>
-    <fluent-button>Home</fluent-button>
-    <fluent-button appearance="primary">About</fluent-button>
-    <fluent-button appearance="accent">Contact</fluent-button>
-    <hr />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeCraft API</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏱️</text></svg>">
+</head>
+<body>
     <div class="container">
-      <h2>Example Usage:</h2>
-      <ul>
-        <li><a href="api/2015-12-25" target="_blank" rel="noopener noreferrer">[project url]/api/2015-12-25</a></li>
-        <li><a href="api/1451001600000" target="_blank" rel="noopener noreferrer">[project url]/api/1451001600000</a></li>
-      </ul>
+        <header>
+            <h1>TimeCraft API</h1>
+            <p>A simple and powerful API for timestamp conversions.</p>
+        </header>
 
-      <h2>Example Output:</h2>
-      <p>
-        <code>{"unix":1451001600000, "utc":"Fri, 25 Dec 2015 00:00:00 GMT"}</code>
-      </p>
+        <main>
+            <section class="endpoints">
+                <h2>API Endpoints</h2>
+                <div class="endpoint">
+                    <h3>Get Current Time</h3>
+                    <p><code>GET /api/</code></p>
+                    <p>Returns the current timestamp in both Unix and UTC formats.</p>
+                </div>
+                <div class="endpoint">
+                    <h3>Get Specific Time</h3>
+                    <p><code>GET /api/:date?</code></p>
+                    <p>Returns the timestamp for a given date string or Unix timestamp.</p>
+                    <h4>Example Usage:</h4>
+                    <ul>
+                        <li><a href="api/2024-07-20" target="_blank" rel="noopener noreferrer">/api/2024-07-20</a></li>
+                        <li><a href="api/1721433600000" target="_blank" rel="noopener noreferrer">/api/1721433600000</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="output">
+                <h2>Example Output</h2>
+                <p>For a valid date, the API returns:</p>
+                <pre><code>{
+  "unix": 1721433600000,
+  "utc": "Sat, 20 Jul 2024 00:00:00 GMT"
+}</code></pre>
+                <p>For an invalid date, the API returns:</p>
+                <pre><code>{
+  "error": "Invalid Date"
+}</code></pre>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 TimeCraft API. All rights reserved.</p>
+        </footer>
     </div>
-    <div class="footer">
-      <p>
-        By <a href="https://www.freecodecamp.org/">freeCodeCamp.org</a>
-      </p>
-    </div>
-  </body>
+</body>
 </html>
